@@ -8,8 +8,11 @@
     foreach ($musics as $music):
 ?>
 <div class="col-12">
+    
     <audio src="<?=$music?>" controls></audio>
 </div>
 <?php
     endforeach;
+     
 ?>
+

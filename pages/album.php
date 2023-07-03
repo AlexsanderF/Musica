@@ -12,7 +12,7 @@
                 $imgAlbum = "{$album}/{$nameAlbum}.jpg";
     ?>
     <div class="col-3 album">
-            <a href="?page=musica&album=<?=$nameAlbum?>">
+            <a class="btn btn-outline-secondary" href="?page=musica&album=<?=$nameAlbum?>">
             <img src="<?=$imgAlbum?>" alt="<?=$album?>" class="img-album">
             <h4><?=$nameAlbum?></h4>
             </a>

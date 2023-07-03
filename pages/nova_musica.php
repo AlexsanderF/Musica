@@ -1,4 +1,4 @@
-<a href="?page=album" class="espaco btn btn-outline-primary">Voltar para o álbum <?=$_GET['album']?></a>
+<a href="?page=musica&album=<?=$_GET['album']?>" class="espaco btn btn-outline-primary">Voltar para o álbum <?=$_GET['album']?></a>
 
 <h1>Cadastrar Nova Música Para o Álbum <?=$_GET['album']?></h1>
 
@@ -19,14 +19,15 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $album = $_GET['album'];
         $path = "Albums/{$album}/musics/";
-
+        //VERIFICA SE TEM OU NÃO A PASTA PARA SALVAR AS MÚSICAS
         if (!is_dir($path)){
             mkdir($path);
         }
-        if (move_uploaded_file($_FILES['audio']['tmp_name'], $path . $_FILES['audio']['name'])){
+        // REALIZA O UPLOAD DA MÚSICA
+        if (move_uploaded_file(c['tmp_name'], $path . $_FILES['audio']['name'])){
             header("Location: ?page=musica&album={$album}");
         } else {
-            echo 'Falha no upload...';
+            echo "Erro no Upload!";
         }
         
     }
